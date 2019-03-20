@@ -1,0 +1,25 @@
+
+import matplotlib.pyplot as plt
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.cm as cm
+
+m = np.arange(-2, 2, 0.5)
+n = np.arange(-2, 2, 0.5)
+
+x, y = np.meshgrid(m, n)
+
+z = [-0.5, 0, 0.5]
+
+fig = plt.figure()
+ax = Axes3D(fig)
+ax.plot_surface(z[0], x, y, rstride=1, cstride=1, cmap = cm.coolwarm)
+ax.plot_surface(z[1], x, y, rstride=1, cstride=1, cmap = cm.coolwarm)
+ax.plot_surface(z[2], x, y, rstride=1, cstride=1, cmap = cm.coolwarm)
+
+lineX = np.linspace(m[1], m[1], 100)
+lineY = np.linspace(n[6], n[6], 100)
+lineZ = np.linspace(-0.5, 0.5, 100)
+ax.plot(lineZ, lineX, lineY, label='parametric curve', linestyle='--', color='black')
+
+plt.show()
